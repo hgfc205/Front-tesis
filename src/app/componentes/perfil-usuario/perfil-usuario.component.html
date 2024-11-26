@@ -1,0 +1,62 @@
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<!-- Agrega los siguientes enlaces para incluir Bootstrap desde CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Agrega esto en el head de tu index.html -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<header>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/home">Eirbianbi</a>
+        <div class="navbar-nav" id="navbarNav">
+        </div>
+      </div>
+    </nav>
+</header>
+<div class="container mt-5">
+
+    <p>Cuenta > Información personal</p>
+    <h1>Información Personal</h1>
+    <form>
+        <div class="form-group">
+            <label for="nombres">Nombres:</label>
+            <input type="text" class="form-control" id="nombres" name="nombres" [(ngModel)]="nombres" [readonly]="!modoEdicion" required>
+        </div>
+
+        <div class="line"></div>
+    
+        <div class="form-group">
+            <label for="apellidoPaterno">Apellido Paterno:</label>
+            <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno" [(ngModel)]="apellidoPaterno" [readonly]="!modoEdicion" required>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="form-group">
+            <label for="apellidoMaterno">Apellido Materno:</label>
+            <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno" [(ngModel)]="apellidoMaterno" [readonly]="!modoEdicion" required>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="form-group">
+            <label for="nacionalidad">Nacionalidad:</label>
+            <select class="selectpicker" id="nacionalidad" name="nacionalidad" [(ngModel)]="nacionalidad" [disabled]="!modoEdicion" required>
+            <option value="" disabled selected>Seleccione su nacionalidad</option>
+            <option value="opcion1">Opción 1</option>
+            <option value="opcion2">Opción 2</option>
+            <!-- Agrega más opciones según sea necesario -->
+            </select>
+        </div>
+
+        <!-- Botón Editar/Guardar -->
+        <div>
+            <button *ngIf="!modoEdicion" type="button" class="btn btn-primary" (click)="modoEdicion = true">Editar</button>
+            <button *ngIf="modoEdicion" type="button" class="btn btn-success" (click)="guardarPerfil()">Guardar</button>
+        </div>
+        <!-- Indicador visual de éxito (palomita) -->
+        <div *ngIf="mostrarMensaje" class="alert alert-success mt-3">
+            ¡Se ha guardado con éxito! <span class="icon">&#10003;</span>
+        </div>
+    </form>
+</div>

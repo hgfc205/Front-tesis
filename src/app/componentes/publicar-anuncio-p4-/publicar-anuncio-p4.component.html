@@ -1,0 +1,84 @@
+<header>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/home">Eirbianbi</a>
+        <div class="navbar-nav" id="navbarNav">
+        </div>
+      </div>
+    </nav>
+</header>
+
+<body>
+    <div id="container-parrafo" class="container mt-5">
+      <div class="text-center">
+        <p class="fs-3">Cuéntale a los huéspedes todo lo que tu espacio tiene para ofrecer.</p>
+        <p class="fs-0"> Selecciona todos los servicios que proporcionas.</p>
+      </div>
+      <div id="container-alojamientos" class="container mt-4">
+        <div class="row">
+          <div class="col" *ngFor="let categoria of ['Básico']">
+            <h2>Servicios {{ categoria }}s</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col" *ngFor="let servicio of serviciosPorCategoria[categoria]">
+                <div class="card custom-card" [class.selected]="tarjetasSeleccionadas.includes(servicio)"
+                  (click)="seleccionarTarjeta(servicio)">
+                  <div class="card-body">
+                    <p class="card-text">{{ servicio?.descripcion }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col" *ngFor="let categoria of ['Entretenimiento']">
+            <h2>{{ categoria }}</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col" *ngFor="let servicio of serviciosPorCategoria[categoria]">
+                <div class="card custom-card" [class.selected]="tarjetasSeleccionadas.includes(servicio)"
+                  (click)="seleccionarTarjeta(servicio)">
+                  <div class="card-body">
+                    <p class="card-text">{{ servicio?.descripcion }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col" *ngFor="let categoria of ['Seguridad']">
+            <h2>{{ categoria }}</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col" *ngFor="let servicio of serviciosPorCategoria[categoria]">
+                <div class="card custom-card" [class.selected]="tarjetasSeleccionadas.includes(servicio)"
+                  (click)="seleccionarTarjeta(servicio)">
+                  <div class="card-body">
+                    <p class="card-text">{{ servicio?.descripcion }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Nueva sección -->
+<div class="container-fixed-bottom" style="position: fixed; bottom: 0; left: 0; right: 0; padding: 20px; background-color: #ffffff;">
+  <!-- Barra de progreso como borde superior -->
+  <div class="progress" style="position: absolute; top: 0; left: 0; right: 0;">
+      <div class="progress-bar bg-dark" role="progressbar" [style.width]="calcularProgreso() + '%'" aria-valuemin="0"
+        aria-valuemax="100">
+      </div>
+  </div>
+
+  <!-- Botones -->
+  <div class="d-flex justify-content-between mt-3">
+    <button class="btn btn-outline-primary btn-no-border " (click)="anterior()">Atrás</button>
+    <button class="btn btn-dark text-white" (click)="siguiente()">Siguiente</button>
+  </div>
+</div>
+</body>
+

@@ -1,0 +1,216 @@
+/*--------------------- Estilo barra de navegacion ------------------------------------------ */
+.navbar {
+    background-color: #f0f0f0; /* Ajusta el color */
+    padding: 0px 0;
+    margin-bottom:5px;
+}
+
+.navbar-brand {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #333; /* Ajusta el color */
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-item {
+    list-style: none;
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333; /* Ajusta el color */
+    border-radius: 30px;
+    transition: background 0.3s ease;
+}
+
+.custom-button {
+    border: 1px solid rgba(184, 180, 180, 0.5);
+    padding: 5px 10px;
+    background-color: #fff; /* Ajusta el color */
+    color: #333; /* Ajusta el color */
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.nav-link:not(.custom-button):not(.profile-link):not(.eirbianbi-link) {
+    padding: 5px 10px;
+    font-weight: 600;
+}
+
+.perfil-link {
+    font-weight: normal;
+    border-radius: 30px;
+}
+
+.eirbianbi-link {
+    font-weight: normal;
+}
+
+.nav-link:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.custom-button:hover {
+    box-shadow: 0 4px 8px rgba(65, 64, 64, 0.1);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.carousel-container {
+  display: flex;
+  align-items: center;
+}
+/*-------------------------Cuerpo de la pagina----------------------------*/
+body {
+    margin: 20px; 
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.row-cols-1 {
+    margin: 0 -15px; 
+}
+
+.col {
+    padding: 0 15px; 
+}
+
+/*-------------------------Parrafos----------------------------*/
+.Titulo{
+    margin: 20px; 
+    font-size: 30px; 
+    color: rgb(15, 15, 14); 
+    font-weight: bold; 
+}
+
+
+.Descripcion {
+    margin: 40px; 
+    font-size: 20px; 
+    text-align: center;
+}
+
+.Subtitulo {
+    margin-top: 40px; 
+    font-size: 20px; 
+    font-weight: bold; 
+}
+
+.Direccion{
+    font-size: 20px; 
+    font-weight: bold; 
+}
+
+.Info_2{
+    margin: 40px; 
+   
+}
+
+
+/*------------------------Estilo carrucel de imagenes--------------------------*/
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 500px; /* Ajusta este valor según sea necesario */
+}
+
+.carousel-image {
+  flex-shrink: 0;
+  width: 100px; /* Ajusta este valor según sea necesario */
+  height: 100px; /* Ajusta este valor según sea necesario */
+  margin: 0 5px;
+  border-radius: 5%;
+}
+
+button {
+  background-color: #ddd;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    width: 100%; /* 100% del ancho de la pantalla */
+    height: 40vh; /* 30% del alto de la pantalla */
+  }
+  
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%; /* 100% del ancho del contenedor */
+    height: 100%; /* 100% del alto del contenedor */
+}
+  
+.carousel-image {
+    flex-shrink: 0;
+    width: auto; /* Ajusta el ancho de las imágenes automáticamente */
+    height: 100%; /* 100% del alto del contenedor */
+    margin: 0 5px;
+}
+  
+button {
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+  
+button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+}
+/*------------------------ Estilo para el contenedor del mapa -----------------------*/
+.mapa{
+    margin-top:  20px;
+    margin: 40px; 
+  }
+  
+  iframe {
+    margin-top:  15px;
+}
+
+/*------------------------ Estilo para linea separadora -----------------------*/
+.separator-line {
+    width: 100%;
+    height: 1px; /* Altura de la línea delgada */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)); /* Efecto difuminado */
+    margin: 20px 0; /* Espaciado alrededor de la línea */
+}

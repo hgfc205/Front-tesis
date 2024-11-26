@@ -1,0 +1,118 @@
+
+<header>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="">Eirbianbi</a>
+      <div class="navbar-nav" id="navbarNav">
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link" href="/anuncios">Modo anfitrión</a>
+          </li>
+          <li class="nav-item dropdown">
+            <div class="dropdown">
+              <button class="custom-button" type="button" id="perfilDropdown">
+                Perfil Usuario
+              </button>
+              <div class="dropdown-menu" aria-labelledby="perfilDropdown">
+                <a class="dropdown-item" (click)="openModal(Signin)">Iniciar Sesión</a>
+                <a class="dropdown-item" (click)="openModal(Signup)">Registrarse</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Modal Inicio Sesion-->
+  <ng-template #Signin>
+    <!-- Contenido del modal -->
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="SigninModal">Iniciar Sesión</h1>
+      <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <!-- Contenido del cuerpo del modal -->
+      <form id="signin-form">
+        <label for="correo"> Correo:</label>
+        <input type="email" id="signin-correo" class="form-control mb-3" placeholder="Correo" required>
+        <label for="contraseña"> Contraseña:</label>
+        <input type="password" id="signin-contraseña" class="form-control mb-3" placeholder="******" required>
+        <button type="button" class="btn btn-primary" (click)="submitSignInForm()">
+          Iniciar sesión
+        </button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="btn btn-info" class="btn btn-secondary" (click)="login_google()">Google</button>
+      <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+    </div>
+  </ng-template>
+  
+  <!-- Modal Registrar-->
+  <ng-template #Signup>
+    <!-- Contenido del modal -->
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="SignupModal">Registrarse</h1>
+      <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <!-- Contenido del cuerpo del modal -->
+      <form id="signup-form">
+        <label for="correo">Correo:</label>
+        <input type="email" id="signup-correo" class="form-control mb-3" placeholder="Correo" required>
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="signup-contraseña" class="form-control mb-3" placeholder="******" required>
+        <button type="button" class="btn btn-primary" (click)="submitSignUpForm()">
+          Registrar
+        </button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+    </div>
+  </ng-template>
+
+</header>
+
+<body>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col">
+      <div class="card h-100">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Tiulo</h5>
+          <p class="card-text">Bibbidulidu.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Tiulo</h5>
+          <p class="card-text">Descripción.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Tiulo</h5>
+          <p class="card-text">Descripción.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Tiulo</h5>
+          <p class="card-text">Descripción.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+

@@ -1,0 +1,37 @@
+<header>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">Eirbianbi</a>
+      <div class="navbar-nav" id="navbarNav">
+        <ul>
+          <li class="nav-item dropdown">
+            <div class="dropdown">
+              <button class="custom-button" type="button" id="perfilDropdown">
+                Perfil Usuario
+              </button>
+              <div class="dropdown-menu" aria-labelledby="perfilDropdown">
+                  <a class="dropdown-item" href="/perfil">Perfil</a>
+                  <a class="dropdown-item" href="/favoritos">Favoritos</a>
+                  <a class="dropdown-item" (click)="cerrar_sesion()">Cerrar Sesión</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<body>
+  <section id="Seccion-bienvenida">
+    <p>Te damos la bienvenida al panel de anfitrión, <br> es hora de administrar tus anuncios.</p>
+    <button type="button" (click)="nuevoAnuncio()" id="nuevo_Anuncio" >Nuevo anuncio + </button>
+  </section>
+
+  <section id="Seccion-Anuncios">
+    <p>Tus anuncios</p>
+    <div id="contenedorAnuncios">
+      <!-- Aquí puedes agregar contenido relacionado con tus anuncios -->
+    </div>
+  </section>
+</body>

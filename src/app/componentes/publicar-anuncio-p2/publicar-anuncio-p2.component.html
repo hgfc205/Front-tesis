@@ -1,0 +1,50 @@
+<header>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">Eirbianbi</a>
+      <div class="navbar-nav" id="navbarNav">
+      </div>
+    </div>
+  </nav>
+</header>
+
+<body>
+    <div class="container">
+      <div >
+        <h1>¿Dónde se encuentra tu alojamiento?</h1>
+        <p>Indica la direreccón de tu alojamiento.</p>
+        <div class="input-container">
+          <input type="text" id="direccionInput" placeholder=" Calle y Número, Colonia  CP:#####, Ciudad y estado">
+          <button id="limpiarBoton" (click)="limpiarDireccion()" tabindex="-1">&#10006;</button>
+        </div>
+        <button id="guardarBoton" (click)="registrarDireccion()">Guardar</button>
+        <button id="buscarBoton" (click)="buscarDireccion()">Búscar</button>
+      </div>
+      <div class="mapa">
+        <iframe
+        width="600"
+        height="150"
+        frameborder="0" style="border:0"
+        [src]="mapUrl" allowfullscreen>
+      </iframe>
+      </div>
+    </div>
+
+    <!-- Nueva sección -->
+    <div class="container-fixed-bottom"
+      style="position: fixed; bottom: 0; left: 0; right: 0; padding: 20px; background-color: #ffffff;">
+      <!-- Barra de progreso como borde superior -->
+      <div class="progress" style="position: absolute; top: 0; left: 0; right: 0;">
+        <div class="progress-bar bg-dark" role="progressbar" [style.width]="calcularProgreso() + '%'" aria-valuemin="0"
+          aria-valuemax="100">
+        </div>
+      </div>
+    
+      <!-- Botones -->
+      <div class="d-flex justify-content-between mt-3">
+        <button class="btn btn-outline-primary btn-no-border " (click)="anterior()">Atrás</button>
+        <button class="btn btn-dark text-white" (click)="siguiente()">Siguiente</button>
+      </div>
+    </div>
+</body>
+

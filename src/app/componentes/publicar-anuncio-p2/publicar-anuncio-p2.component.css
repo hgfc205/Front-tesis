@@ -1,0 +1,182 @@
+/* ------------------------------------------- Estilo Header -------------------------------- */
+.navbar {
+  background-color: #f0f0f0;
+  padding: 10px 0; /* Ajuste de 10px en la parte superior e inferior */
+  margin-bottom: 5px;
+}
+
+.navbar-brand {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #333;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  border-radius: 30px;
+  transition: background 0.3s ease;
+}
+
+.custom-button {
+  border: 1px solid rgba(184, 180, 180, 0.5);
+  padding: 5px 10px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.nav-link:not(.custom-button):not(.profile-link):not(.eirbianbi-link) {
+  padding: 5px 10px;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.custom-button:hover {
+  box-shadow: 0 4px 8px rgba(65, 64, 64, 0.1);
+}
+
+/* ------------------------------------------- Estilo Body ------------------------------------ */
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.container {
+  max-width: 600px; /* Ajusta el ancho máximo según tus preferencias */
+  max-height: 800;
+  width: 100%;
+  padding: 0 20px; /* Ajusta el espaciado interno según tus preferencias */
+}
+
+div {
+  text-align: center;
+}
+
+h1{
+  text-align: left;
+  margin: 10px 0;
+}
+p {
+  margin: 10px 0;
+  font-size: 1.2em;
+  text-align: left;
+  color: #534c4c;
+}
+
+input:focus {
+  border-color: #1a1b1b;
+}
+
+/*------------------------ Estilo para el contenedor del mapa -----------------------*/
+.mapa{
+  margin-top:  20px;
+}
+
+iframe {
+  margin-top:  15px;
+}
+/*------------------------ Estilo para el contenedor fijo en la parte inferior -----------------------*/
+.container-fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Ajusta el color de fondo según tus preferencias */
+  padding: 20px; /* Ajusta el espaciado según tus preferencias */
+  border-top: 1px solid #ccc; /* Línea de separación opcional */
+  margin-top: auto; /* Ajusta el margen superior para dejar espacio para el contenedor fijo */
+}
+/* Estilos adicionales para el botón "Atrás" */
+.btn-no-border {
+  border: none;
+  text-decoration: underline;
+  transition: background 0.3s ease; /* Transición suave */
+}
+.btn-no-border:hover {
+  background-color: #f0f0f0; /* Cambia a un gris claro al pasar el cursor */
+  color: #302d2d;
+}
+
+/*------------------------ Imput y botones -----------------------*/
+
+.input-container {
+  position: relative;
+}
+
+#direccionInput {
+  width: calc(100% + 40px);
+  margin-top: 20px;
+  border: 1px solid #838080;
+  border-radius: 15px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#limpiarBoton {
+  position: absolute;
+  right: calc(-5%);
+  top: calc(50% + 10px);
+  transform: translateY(-50%);
+  background-color: #dbd8d8;
+  border: none;
+  cursor: pointer;
+  border-radius: 30%;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#guardarBoton {
+  margin-top: 20px;
+  margin-right: -38px;
+  float: right;
+  background: white;
+  border-radius: 10%;
+}
+
+#buscarBoton {
+  margin-top: 20px;
+  margin-right: 10px;
+  float: right;
+  background: white;
+  border-radius: 10%;
+}
+
+.button{
+  border: none;
+  text-decoration: underline;
+  transition: background 0.3s ease; /* Transición suave */
+}
+.button:hover {
+  background-color: #f0f0f0; /* Cambia a un gris claro al pasar el cursor */
+  color: #302d2d;
+}
+
+#limpiarBoton::after {
+  color: #333;
+  
+}
+  

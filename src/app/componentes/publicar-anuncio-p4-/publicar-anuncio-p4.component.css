@@ -1,0 +1,120 @@
+/* ------------------------------------------- Estilo Body y HTML ------------------------------------ */
+body {
+  min-height: 100%;
+  overflow-y: auto; /* Permitir desplazamiento vertical en el cuerpo */
+  margin-bottom: 120px; /* Ajusta el margen inferior para permitir más desplazamiento */
+}
+
+/* ------------------------------------------- Estilo Header -------------------------------- */
+.navbar {
+    background-color: #f0f0f0;
+    padding: 10px 0; /* Ajuste de 10px en la parte superior e inferior */
+    margin-bottom: 5px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .navbar-nav {
+    margin-left: auto;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #333;
+    border-radius: 30px;
+    transition: background 0.3s ease;
+  }
+  
+  .custom-button {
+    border: 1px solid rgba(184, 180, 180, 0.5);
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+  
+  .nav-link:not(.custom-button):not(.profile-link):not(.eirbianbi-link) {
+    padding: 5px 10px;
+    font-weight: 600;
+  }
+  
+  .nav-link:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-button:hover {
+    box-shadow: 0 4px 8px rgba(65, 64, 64, 0.1);
+  }
+  
+  /* ------------------------------------------- Estilo Body ------------------------------------ */
+  .custom-card {
+    height: 80px;
+    width: 100%;
+    padding: 15px;
+    transition: border 0.3s;
+  }
+  
+  .custom-card:hover, .custom-card.selected {
+    border: 2px solid #000;
+  }
+  
+  .fs-3 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-align: left;
+  }
+  
+  .fs-0 {
+    color: #706e6e;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-align: left;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+  #container-parrafo {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .row {
+    margin-bottom: 20px;
+  }
+  
+  .text-center {
+    text-align: left;
+  }
+  /*------------------------ Estilo para el contenedor fijo en la parte inferior -----------------------*/
+  .container-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Ajusta el color de fondo según tus preferencias */
+    padding: 20px; /* Ajusta el espaciado según tus preferencias */
+    border-top: 1px solid #ccc; /* Línea de separación opcional */
+    margin-top: auto; /* Ajusta el margen superior para dejar espacio para el contenedor fijo */
+  }
+  
+  /* Estilos adicionales para el botón "Atrás" */
+  .btn-no-border {
+    border: none;
+    text-decoration: underline;
+    transition: background 0.3s ease; /* Transición suave */
+  }
+  
+  .btn-no-border:hover {
+    background-color: #f0f0f0; /* Cambia a un gris claro al pasar el cursor */
+    color: #302d2d;
+  }

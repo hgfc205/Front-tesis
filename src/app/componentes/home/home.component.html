@@ -1,0 +1,41 @@
+<header>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">Eirbianbi</a>
+      <div class="navbar-nav" id="navbarNav">
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link" (click)="modoAnfitrion()" >Modo anfitrión</a>
+          </li>
+          <li class="nav-item dropdown">
+            <div class="dropdown">
+              <button class="custom-button" type="button" id="perfilDropdown">
+                Perfil Usuario
+              </button>
+              <div class="dropdown-menu" aria-labelledby="perfilDropdown">
+                  <a class="dropdown-item" href="/perfil">Perfil</a>
+                  <a class="dropdown-item" href="/favoritos">Favoritos</a>
+                  <a class="dropdown-item" (click)="cerrar_sesion()">Cerrar Sesión</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+<body>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col" *ngFor="let anuncio of anuncios" (click)="verAnuncio(anuncio.id_anuncio)">
+      <div class="card h-100">
+        <img [src]="anuncio?.direccion_imagen" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{ anuncio?.titulo }}</h5>
+          <p class="card-text">{{ anuncio?.descripcion }}</p>
+          <p class="card-text">Precio por noche: $ {{ anuncio?.precio }} MXN</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

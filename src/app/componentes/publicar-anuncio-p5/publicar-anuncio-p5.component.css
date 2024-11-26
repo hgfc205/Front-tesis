@@ -1,0 +1,128 @@
+/* ------------------------------------------- Estilo Header -------------------------------- */
+.navbar {
+    background-color: #f0f0f0;
+    padding: 10px 0;
+    /* Ajuste de 10px en la parte superior e inferior */
+    margin-bottom: 5px;
+}
+
+.navbar-brand {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    border-radius: 30px;
+    transition: background 0.3s ease;
+}
+
+.custom-button {
+    border: 1px solid rgba(184, 180, 180, 0.5);
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.nav-link:not(.custom-button):not(.profile-link):not(.eirbianbi-link) {
+    padding: 5px 10px;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.custom-button:hover {
+    box-shadow: 0 4px 8px rgba(65, 64, 64, 0.1);
+}
+
+/*------------------------ Estilo para el contenedor fijo en la parte inferior -----------------------*/
+.container-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    /* Ajusta el color de fondo según tus preferencias */
+    padding: 20px;
+    /* Ajusta el espaciado según tus preferencias */
+    border-top: 1px solid #ccc;
+    /* Línea de separación opcional */
+}
+
+/* Estilos adicionales para el botón "Atrás" */
+.btn-no-border {
+    border: none;
+    text-decoration: underline;
+    transition: background 0.3s ease;
+    /* Transición suave */
+}
+
+.btn-no-border:hover {
+    background-color: #f0f0f0;
+    /* Cambia a un gris claro al pasar el cursor */
+    color: #302d2d;
+}
+/*------------------------ Estilo para texto -----------------------*/
+
+h1{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 30px; /* Agrega un margen inferior de 30px */
+}
+
+/*------------------------ Estilo para cajas de texto -----------------------*/
+
+#cajasTexto1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ajusta el ancho según tus necesidades */
+}
+
+#cajasTexto1 label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+#cajasTexto1 input[type="text"],
+#cajasTexto1 textarea {
+    font-size: 18px; /* Ajusta el tamaño de fuente según tus necesidades */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    margin-bottom: 10px; /* Agrega un margen inferior para separar los elementos */
+}
+
+#cajasTexto1 textarea {
+    height: 150px;
+    resize: none; /* Evita que se pueda redimensionar */
+}
+
+#cajasTexto1 input[type="text"]:focus,
+#cajasTexto1 textarea:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+#cajasTexto1 p {
+    margin: 0;
+    font-size: 16px;
+}

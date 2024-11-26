@@ -1,0 +1,51 @@
+<header>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/home">Eirbianbi</a>
+        <div class="navbar-nav" id="navbarNav">
+        </div>
+      </div>
+    </nav>
+</header>
+
+<body>
+
+  <h1>Promociona tu anuncio de manera llamativa.</h1>
+  <div class="d-flex justify-content-center mt-5">
+    <div id="cajasTexto1">
+  
+      <label for="cajaTexto1">Titulo del anuncio.</label>
+      <div>
+        <input type="text" id="cajaTexto1">
+      </div>
+  
+      <label for="cajaTexto2">Descripción del anuncio.</label>
+      <div>
+        <textarea id="cajaTexto2"></textarea>
+      </div>
+      
+      <form [formGroup]="miFormulario">
+        <label for="cajaTexto3">Precio por noche.</label>
+        <div>
+          <input type="text" id="cajaTexto3" pattern="[0-9]+" title="Ingrese solo números">
+        </div>
+      </form>
+    </div>
+  </div>
+
+    <!-- Nueva sección -->
+    <div class="container-fixed-bottom" style="position: fixed; bottom: 0; left: 0; right: 0; padding: 20px; background-color: #ffffff;">
+    <!-- Barra de progreso como borde superior -->
+    <div class="progress" style="position: absolute; top: 0; left: 0; right: 0;">
+        <div class="progress-bar bg-dark" role="progressbar" [style.width]="calcularProgreso() + '%'" aria-valuemin="0"
+          aria-valuemax="100">
+        </div>
+    </div>
+
+    <!-- Botones -->
+    <div class="d-flex justify-content-between mt-3">
+      <button class="btn btn-outline-primary btn-no-border " (click)="anterior()">Atrás</button>
+      <button class="btn btn-dark text-white" (click)="siguiente()">Siguiente</button>
+    </div>
+  </div>
+</body>

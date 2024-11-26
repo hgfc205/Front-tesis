@@ -1,0 +1,68 @@
+<header>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/home">Eirbianbi</a>
+        <div class="navbar-nav" id="navbarNav">
+          <ul>
+            <li class="nav-item dropdown">
+              <div class="dropdown">
+                <button class="custom-button" type="button" id="perfilDropdown">
+                  Perfil Usuario
+                </button>
+                <div class="dropdown-menu" aria-labelledby="perfilDropdown">
+                    <a class="dropdown-item" href="/perfil">Perfil</a>
+                    <a class="dropdown-item" href="/favoritos">Favoritos</a>
+                    <a class="dropdown-item" (click)="cerrar_sesion()">Cerrar Sesión</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+
+<body>
+  <div class="card-body">
+    <!-- Titulo del Anuncio -->
+    <h5 class="Titulo">{{ anuncios_Info[0].titulo }}</h5>
+    <div class="col" *ngIf="anuncios_Img">
+      <!-- Carrusel de Imágenes -->
+      <div class="carousel-container">
+        <button (click)="prevImage()" [disabled]="currentIndex === 0">‹</button>
+        <div class="carousel">
+          <img *ngFor="let img of anuncios_Img.slice(currentIndex, currentIndex + 5)" [src]="img?.direccion_imagen" class="carousel-image">
+        </div>
+        <button (click)="nextImage()" [disabled]="currentIndex >= anuncios_Img.length - 5">›</button>
+      </div>
+    </div>
+    <!-- Descirpcion del Anuncio -->
+    <p class="Descripcion">{{ anuncios_Info[0].descripcion }} </p>
+
+    <div class="separator-line"></div>
+    <p class="Subtitulo">Precio por noche: $ {{ anuncios_Info[0].precio }} MXN </p>
+
+    <div class="separator-line"></div>
+    <p class="Subtitulo">Información </p>
+    <p class="Info_2"> Este alojamiento cuenta con las siguientes caracteristicas. <br><br>
+                            Número de habitaciones: {{ anuncios_Info[0].num_habitaciones }}<br>
+                            Número de camas: {{ anuncios_Info[0].num_camas }}<br>
+                            Número de baños: {{ anuncios_Info[0].num_banos }} .</p>
+    <p class="Subtitulo">Servicios </p>
+
+    <!-- Línea separadora -->
+    <div class="separator-line"></div>
+    <!-- Maps con la ubicación -->
+    <div class="mapa">
+      <p class="Direccion"> Ubicación del alojamiento.</p>
+      <iframe
+      width="100%"
+      height="180px"
+      frameborder="0" style="border:0"
+      [src]="mapUrl" allowfullscreen >
+    </iframe>
+    </div>
+  </div>
+</body>
+
+  
