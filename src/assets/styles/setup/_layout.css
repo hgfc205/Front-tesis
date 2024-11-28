@@ -1,0 +1,70 @@
+:root {
+    --mobile-breakpoint: 400px;
+    --tablet-breakpoint: 650px;
+    --narrow-breakpoint: 960px;
+    --normal-breakpoint: 1400px;
+    --wide-breakpoint: 1760px;
+  }
+  
+  .main-layout {
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+    padding: 0;
+  }
+  
+  .main-layout > * {
+    grid-column: 2;
+  }
+  
+  .main-layout > *.full {
+    grid-column: 1 / -1;
+  }
+  
+  /* Media Queries */
+  @media (min-width: calc(var(--mobile-breakpoint) + 40px)) {
+    .main-layout {
+      grid-template-columns:
+        minmax(20px, 1fr) minmax(auto, var(--mobile-breakpoint)) minmax(20px, 1fr);
+    }
+  }
+  
+  @media (min-width: calc(var(--tablet-breakpoint) + 40px)) {
+    .main-layout {
+      grid-template-columns:
+        minmax(20px, 1fr) minmax(auto, var(--tablet-breakpoint)) minmax(20px, 1fr);
+    }
+  }
+  
+  @media (min-width: calc(var(--narrow-breakpoint) + 40px)) {
+    .main-layout {
+      grid-template-columns:
+        minmax(20px, 1fr) minmax(auto, var(--narrow-breakpoint)) minmax(20px, 1fr);
+    }
+  }
+  
+  @media (min-width: calc(var(--normal-breakpoint) + 40px)) {
+    .main-layout {
+      grid-template-columns:
+        minmax(20px, 1fr) minmax(auto, var(--normal-breakpoint)) minmax(20px, 1fr);
+    }
+  }
+  
+  @media (min-width: calc(var(--wide-breakpoint) + 40px)) {
+    .main-layout {
+      grid-template-columns:
+        minmax(20px, 1fr) minmax(auto, var(--wide-breakpoint)) minmax(20px, 1fr);
+    }
+  }
+  
+  /* Diseño de impresión */
+  @media print {
+    .main-layout {
+      display: unset;
+    }
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }

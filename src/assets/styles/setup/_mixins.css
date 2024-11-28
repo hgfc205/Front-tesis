@@ -1,0 +1,101 @@
+:root {
+    --mobile-breakpoint: 400px;
+    --tablet-breakpoint: 650px;
+    --narrow-breakpoint: 960px;
+    --normal-breakpoint: 1400px;
+    --wide-breakpoint: 1760px;
+    --main-hover: #F7F7F7;
+  }
+  
+  /* Flexbox centrado */
+  .center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Contenedor de detalles de usuario */
+  .user-details-container {
+    flex-direction: column;
+    display: flex;
+    gap: 16px;
+    margin: 16px auto;
+    background-color: var(--main-hover);
+    padding: 10px 18px;
+    border-radius: 6px;
+    width: max-content;
+  }
+  
+  @media (min-width: calc(var(--tablet-breakpoint) + 40px)) {
+    .user-details-container {
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+    }
+  }
+  
+  .user-details-container .title {
+    font-weight: 500;
+  }
+  
+  .user-details-container div {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .user-details-container .icon-approved {
+    color: lightgreen;
+  }
+  
+  .user-details-container .icon-pending {
+    color: yellow;
+  }
+  
+  .user-details-container .icon-declined {
+    color: salmon;
+  }
+  
+  /* Botón principal */
+  .main-btn {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 24px;
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+    border: none;
+    background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+  }
+  
+  /* Media Queries (reemplazo de mixins de breakpoints) */
+  @media (max-width: calc(var(--mobile-breakpoint) + 40px)) {
+    /* Contenido específico para mobile */
+  }
+  
+  @media (min-width: calc(var(--mobile-breakpoint) + 40px)) {
+    /* Contenido específico para tablet */
+  }
+  
+  @media (min-width: calc(var(--tablet-breakpoint) + 40px)) {
+    /* Contenido específico para narrow */
+  }
+  
+  @media (min-width: calc(var(--narrow-breakpoint) + 40px)) {
+    /* Contenido específico para normal */
+  }
+  
+  @media (min-width: calc(var(--normal-breakpoint) + 40px)) {
+    /* Contenido específico para wide */
+  }
+  
+  @media (min-width: calc(var(--wide-breakpoint) + 40px)) {
+    /* Contenido específico para desktop */
+  }

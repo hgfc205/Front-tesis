@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,Input } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { LoginService } from '../../servicios/login/login.service';
 import { AnunciosService } from '../../servicios/anuncios/anuncios.service';
@@ -12,11 +12,14 @@ import { AnuncioInfo_get,AnuncioImagenes_get } from '../../clases/Anuncios';
 
 })
 export class PerfilAnuncioComponent {
-  anuncioId: number | undefined;
+  @Input() anuncios_Img: { direccion_imagen: string }[] = [];
   currentIndex: number = 0;
+  visibleImages: number = 5; // Número de imágenes visibles en el carrusel
+  anuncioId: number | undefined;
+  //currentIndex: number = 0;
   //Arreglos para guardar Informacion e imagenes de los anuncios.
   anuncios_Info: AnuncioInfo_get[] = [];
-  anuncios_Img: AnuncioImagenes_get[] = [];
+  //anuncios_Img: AnuncioImagenes_get[] = [];
 
   //Direccion predeterminada en el mapa.
   mapUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.google.com/maps/embed/v1/place?q=25.7608105,-108.9889709&zoom=3&key=AIzaSyAJKhEZG06SRCHgQQiuv1fncdI-FUsj_PE');

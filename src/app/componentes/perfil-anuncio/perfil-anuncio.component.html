@@ -22,20 +22,15 @@
     </nav>
 </header>
 
-<body>
+<body>  
   <div class="card-body">
     <!-- Titulo del Anuncio -->
     <h5 class="Titulo">{{ anuncios_Info[0].titulo }}</h5>
-    <div class="col" *ngIf="anuncios_Img">
+    <div class="col" *ngIf="anuncios_Img"></div>
       <!-- Carrusel de Imágenes -->
-      <div class="carousel-container">
-        <button (click)="prevImage()" [disabled]="currentIndex === 0">‹</button>
-        <div class="carousel">
-          <img *ngFor="let img of anuncios_Img.slice(currentIndex, currentIndex + 5)" [src]="img?.direccion_imagen" class="carousel-image">
-        </div>
-        <button (click)="nextImage()" [disabled]="currentIndex >= anuncios_Img.length - 5">›</button>
+      <div class="img-container">
+        <img *ngFor="let img of anuncios_Img.slice(currentIndex, currentIndex + 5)" [src]="img?.direccion_imagen">
       </div>
-    </div>
     <!-- Descirpcion del Anuncio -->
     <p class="Descripcion">{{ anuncios_Info[0].descripcion }} </p>
 
@@ -63,6 +58,7 @@
     </iframe>
     </div>
   </div>
+
 </body>
 
   

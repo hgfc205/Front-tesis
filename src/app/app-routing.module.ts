@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'anuncios/publicar/descripcion', component: PublicarAnuncioP5Component,
   ...canActivate(() => redirectUnauthorizedTo(['']))},
 
-  { path: 'anuncios/publicar/fechas/', component: PublicarAnuncioP6Component,
+  { path: 'anuncios/publicar/fechas', component: PublicarAnuncioP6Component,
   ...canActivate(() => redirectUnauthorizedTo(['']))},
   
   { path: 'anuncios/publicar/imagenes', component: PublicarAnuncioP7Component,
