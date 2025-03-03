@@ -13,9 +13,25 @@ import { PublicarAnuncioP4Component } from './componentes/publicar-anuncio-p4-/p
 import { PublicarAnuncioP5Component } from './componentes/publicar-anuncio-p5/publicar-anuncio-p5.component';
 import { PublicarAnuncioP6Component } from './componentes/publicar-anuncio-p6/publicar-anuncio-p6.component';
 import { PublicarAnuncioP7Component } from './componentes/publicar-anuncio-p7/publicar-anuncio-p7.component';
+
+
 import { PublicarAnuncioP8Component } from './componentes/publicar-anuncio-p8/publicar-anuncio-p8.component';
+
 import { PerfilUsuarioComponent} from './componentes/perfil-usuario/perfil-usuario.component';
 import { PerfilAnuncioComponent} from './componentes/perfil-anuncio/perfil-anuncio.component';
+
+
+
+
+
+import { EditAnuncioComponent } from './componentes/edit-anuncio/edit-anuncio.component';
+
+
+
+
+
+
+
 let id: number | null = null;
 //Rutas qu se manejaran en la paginaweb.
 const routes: Routes = [
@@ -63,11 +79,19 @@ const routes: Routes = [
   //{ path:`perfil/anuncio/${id}`, component: AnunciosComponent}, 
   //{ path:`perfil/usuario/${id}`, component: AnunciosComponent}, 
   // Otras rutas que puedas tener
- 
+
+
+  { path: 'editanuncio', component: EditAnuncioComponent, ...canActivate(() => redirectUnauthorizedTo(['']))},
+
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+
+  
+}

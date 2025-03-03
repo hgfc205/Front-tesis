@@ -1,47 +1,262 @@
-/* ------------------------------------------- Estilo Header -------------------------------- */
+/* ------------------------------------------- General -------------------------------- */
+body {
+  font-family: 'Inter', sans-serif; /* Tipografía profesional */
+  background-color: #f4f6f9; /* Fondo neutro elegante */
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6; /* Mejor legibilidad */
+}
+
+/* Contenedor principal */
+.container {
+  background-color: #ffffff; /* Fondo blanco para contraste */
+  padding: 40px;
+  border-radius: 20px; /* Bordes suaves */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra profunda y profesional */
+  max-width: 1100px;
+  margin: 60px auto; /* Centrado con espacio superior */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animaciones sutiles */
+}
+
+.container:hover {
+  transform: translateY(-5px); /* Efecto flotante al pasar el cursor */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Títulos */
+h1, h2, h3 {
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-left: 5px solid #007bff; /* Línea decorativa al lado */
+  padding-left: 15px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* Párrafos */
+p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Líneas divisoras */
+.line {
+  height: 2px;
+  background: linear-gradient(to right, #007bff, transparent);
+  margin: 30px 0;
+  border: 0;
+}
+
+/* ------------------------------------------- Navegación -------------------------------- */
 .navbar {
-    background-color: #f0f0f0;
-    padding: 10px 0; /* Ajuste de 10px en la parte superior e inferior */
-    margin-bottom: 5px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #eaeaea; /* Línea inferior */
+  padding: 20px 30px;
+  position: sticky; /* Se queda en la parte superior */
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Sombra elegante */
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #0056b3;
+}
+
+.nav-link {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-left: 15px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff;
+  border-bottom: 2px solid #007bff; /* Subrayado animado */
+}
+
+/* ------------------------------------------- Botones -------------------------------- */
+.btn {
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #007bff, #0056b3); /* Degradado elegante */
+  border: none;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #0056b3, #004099);
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* ------------------------------------------- Formularios -------------------------------- */
+.form-control {
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
+}
+
+/* Etiquetas */
+label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+/* ------------------------------------------- Tarjetas -------------------------------- */
+.card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* ------------------------------------------- Footer -------------------------------- */
+footer {
+  background-color: #333;
+  color: #f8f9fa;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* ------------------------------------------- Animaciones -------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ------------------------------------------- Responsividad -------------------------------- */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
   .navbar-brand {
-    font-size: 1.2em;
-    text-decoration: none;
-    color: #333;
+    font-size: 1.5rem;
   }
-  
-  .navbar-nav {
-    margin-left: auto;
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: #333;
-    border-radius: 30px;
-    transition: background 0.3s ease;
-  }
-  
-  .custom-button {
-    border: 1px solid rgba(184, 180, 180, 0.5);
-    padding: 5px 10px;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    border-radius: 30px;
-  }
-  
-  .nav-link:not(.custom-button):not(.profile-link):not(.eirbianbi-link) {
-    padding: 5px 10px;
-    font-weight: 600;
-  }
-  
-  .nav-link:hover {
-    background: rgba(0, 0, 0, 0.1);
-  }
-  
-  .custom-button:hover {
-    box-shadow: 0 4px 8px rgba(65, 64, 64, 0.1);
-  }
-  
-  /* ------------------------------------------- Estilo Body ------------------------------------ */
+}
+
+/* ------------------------------------------- Fondo -------------------------------- */
+body {
+  font-family: 'Inter', sans-serif;
+  background: url('../../../assets/Images/pexels-pixabay-531880.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+  backdrop-filter: blur(4px); /* Agrega un efecto de desenfoque */
+  -webkit-backdrop-filter: blur(4px); /* Para Safari */
+}
+
+/* Contenedor principal */
+.container {
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente para resaltar contenido */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 1100px;
+  margin: 60px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}

@@ -1,61 +1,88 @@
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<!-- Agrega los siguientes enlaces para incluir Bootstrap desde CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Agrega esto en el head de tu index.html -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<!-- Contenedor principal de la página -->
+<div class="container mt-5 bg-white p-4 rounded shadow-sm">
+    <!-- Ruta de navegación para mostrar la ubicación en la página -->
+    <p class="text-muted">Cuenta > Información personal</p>
+    <!-- Título de la sección -->
+    <h1 class="mb-4">Información Personal</h1>
 
-<header>
-    <nav class="navbar">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/home">Eirbianbi</a>
-        <div class="navbar-nav" id="navbarNav">
-        </div>
-      </div>
-    </nav>
-</header>
-<div class="container mt-5">
-
-    <p>Cuenta > Información personal</p>
-    <h1>Información Personal</h1>
+    <!-- Inicio del formulario para editar la información personal -->
     <form>
-        <div class="form-group">
-            <label for="nombres">Nombres:</label>
-            <input type="text" class="form-control" id="nombres" name="nombres" [(ngModel)]="nombres" [readonly]="!modoEdicion" required>
+        <!-- Campo para los nombres -->
+        <div class="form-group mb-4">
+            <label for="nombres" class="form-label">Nombres:</label>
+            <input type="text" class="form-control" id="nombres" name="nombres" [(ngModel)]="nombres" 
+                    [readonly]="!modoEdicion" required>
         </div>
 
+        <!-- Línea divisoria -->
         <div class="line"></div>
-    
-        <div class="form-group">
-            <label for="apellidoPaterno">Apellido Paterno:</label>
-            <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno" [(ngModel)]="apellidoPaterno" [readonly]="!modoEdicion" required>
+
+        <!-- Campo para el apellido paterno -->
+        <div class="form-group mb-4">
+            <label for="apellidoPaterno" class="form-label">Apellido Paterno:</label>
+            <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno" 
+                    [(ngModel)]="apellidoPaterno" [readonly]="!modoEdicion" required>
         </div>
 
+        <!-- Línea divisoria -->
         <div class="line"></div>
 
-        <div class="form-group">
-            <label for="apellidoMaterno">Apellido Materno:</label>
-            <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno" [(ngModel)]="apellidoMaterno" [readonly]="!modoEdicion" required>
+        <!-- Campo para el apellido materno -->
+        <div class="form-group mb-4">
+            <label for="apellidoMaterno" class="form-label">Apellido Materno:</label>
+            <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno" 
+                    [(ngModel)]="apellidoMaterno" [readonly]="!modoEdicion" required>
         </div>
 
+        <!-- Línea divisoria -->
         <div class="line"></div>
 
-        <div class="form-group">
-            <label for="nacionalidad">Nacionalidad:</label>
-            <select class="selectpicker" id="nacionalidad" name="nacionalidad" [(ngModel)]="nacionalidad" [disabled]="!modoEdicion" required>
-            <option value="" disabled selected>Seleccione su nacionalidad</option>
-            <option value="opcion1">Opción 1</option>
-            <option value="opcion2">Opción 2</option>
-            <!-- Agrega más opciones según sea necesario -->
+        <!-- Campo para el correo electrónico -->
+        <div class="form-group mb-4">
+            <label for="email" class="form-label">Correo Electrónico:</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" 
+                [readonly]="!modoEdicion" placeholder="nombre@ejemplo.com" required>
+        </div>
+
+        <!-- Línea divisoria -->
+        <div class="line"></div>
+
+        <!-- Campo para el número de celular -->
+        <div class="form-group mb-4">
+            <label for="celular" class="form-label">Número de Celular:</label>
+            <input type="tel" class="form-control" id="celular" name="celular" [(ngModel)]="celular" 
+                [readonly]="!modoEdicion" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            <small class="form-text text-muted">Formato: 123-456-7890</small>
+        </div>
+
+        <!-- Línea divisoria -->
+        <div class="line"></div>
+
+        <!-- Campo para seleccionar la nacionalidad -->
+        <div class="form-group mb-4">
+            <label for="nacionalidad" class="form-label">Nacionalidad:</label>
+            <select class="form-select" id="nacionalidad" name="nacionalidad" 
+                    [(ngModel)]="nacionalidad" [disabled]="!modoEdicion" required>
+                <option value="" disabled selected>Seleccione su nacionalidad</option>
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
             </select>
         </div>
 
-        <!-- Botón Editar/Guardar -->
-        <div>
-            <button *ngIf="!modoEdicion" type="button" class="btn btn-primary" (click)="modoEdicion = true">Editar</button>
-            <button *ngIf="modoEdicion" type="button" class="btn btn-success" (click)="guardarPerfil()">Guardar</button>
+        <!-- Botones de acción para Editar/Guardar -->
+        <div class="text-center">
+            <button *ngIf="!modoEdicion" type="button" class="btn btn-primary" 
+                    (click)="modoEdicion = true" aria-label="Editar información personal">
+                Editar
+            </button>
+            <button *ngIf="modoEdicion" type="button" class="btn btn-success" 
+                    (click)="guardarPerfil()" aria-label="Guardar cambios en la información personal">
+                Guardar
+            </button>
         </div>
-        <!-- Indicador visual de éxito (palomita) -->
-        <div *ngIf="mostrarMensaje" class="alert alert-success mt-3">
+
+        <!-- Mensaje de éxito al guardar -->
+        <div *ngIf="mostrarMensaje" class="alert alert-success mt-4 text-center">
             ¡Se ha guardado con éxito! <span class="icon">&#10003;</span>
         </div>
     </form>

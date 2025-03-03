@@ -1,0 +1,20 @@
+<h2>Subir Imágenes</h2>
+
+<div class="upload-container" (click)="abrirExplorador()">
+  <input 
+    type="file" 
+    accept="image/*" 
+    multiple 
+    #fileInput 
+    (change)="seleccionarImagenes($event)" 
+    hidden 
+  />
+  <div *ngIf="imagenesSeleccionadas.length === 0" class="upload-placeholder">
+    Haz clic para cargar
+  </div>
+</div>
+
+<!-- Mostrar vista previa de imágenes seleccionadas -->
+<div class="preview-container">
+  <img *ngFor="let imagen of imagenesSeleccionadas" [src]="imagen" class="preview" />
+</div>

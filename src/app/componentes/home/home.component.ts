@@ -73,4 +73,26 @@ export class HomeComponent {
     })
     .catch(error => console.log(error));
   }
+
+
+
+  favoritos: number[] = []; // Lista de IDs de anuncios favoritos
+
+  esFavorito(id: number): boolean {
+    return this.favoritos.includes(id);
+  }
+  
+
+  toggleFavorite(id: number, event: Event): void {
+    event.stopPropagation(); // Evita que se dispare el click del anuncio
+  
+    if (this.favoritos.includes(id)) {
+      this.favoritos = this.favoritos.filter(favId => favId !== id);
+    } else {
+      this.favoritos.push(id);
+    }
+  }
+  
+
+
 }
