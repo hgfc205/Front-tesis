@@ -5,7 +5,7 @@ import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 //Importación de la pantalla principal
 import{ PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { HomeComponent} from './componentes/home/home.component';
-import { AnunciosComponent } from './componentes/anuncios/anuncios.component';
+import { AnunciosComponent } from './componentes/anfitrion/anuncios/anuncios.component';
 import { PublicarAnuncioComponent } from './componentes/publicar-anuncio-p1/publicar-anuncio.component';
 import { PublicarAnuncioP2Component } from './componentes/publicar-anuncio-p2/publicar-anuncio-p2.component';
 import { PublicarAnuncioP3Component } from './componentes/publicar-anuncio-p3/publicar-anuncio-p3.component';
@@ -14,7 +14,7 @@ import { PublicarAnuncioP5Component } from './componentes/publicar-anuncio-p5/pu
 import { PublicarAnuncioP6Component } from './componentes/publicar-anuncio-p6/publicar-anuncio-p6.component';
 import { PublicarAnuncioP7Component } from './componentes/publicar-anuncio-p7/publicar-anuncio-p7.component';
 import { PublicarAnuncioP8Component } from './componentes/publicar-anuncio-p8/publicar-anuncio-p8.component';
-import { PerfilUsuarioComponent} from './componentes/perfil-usuario/perfil-usuario.component';
+import { PerfilUsuarioComponent} from './componentes/huesped/perfil-usuario/perfil-usuario.component';
 import { PerfilAnuncioComponent} from './componentes/perfil-anuncio/perfil-anuncio.component';
 let id: number | null = null;
 //Rutas qu se manejaran en la paginaweb.

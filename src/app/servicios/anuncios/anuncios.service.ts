@@ -20,7 +20,8 @@ import { Imagen_add,
   tipoServicio_get,
   UltimoAnuncio_get, 
   AnuncioImagenes_get,
-  AnuncioInfo_get} from '../../clases/Anuncios';
+  AnuncioInfo_get,
+  DetalleAnuncio_get} from '../../clases/Anuncios';
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +56,7 @@ export class AnunciosService {
     );
   }
 
+  //----------------------------- Metodo para optener informacion de un anuncio ------------------------
   getAnunciosInfo(id: number | null = null)
   { 
     return this.http.get<AnuncioInfo_get[]>(`${this.domain}/anuncios/perfil/${id}`).pipe(
@@ -211,6 +213,19 @@ export class AnunciosService {
     );
   }
   
+  //----------------------------- Metodo para informacion de los anuncio de anuncio publicados por un usuario específico-----------------------------------------.
+  getDetallePublicaciones(id_usuario: string | null = null): Observable<DetalleAnuncio_get[]> 
+  { 
+    console.log('Buscando anuncios del usuario: ', id_usuario);
+    return this.http.get<DetalleAnuncio_get[]>(`${this.domain}/anuncios/publicaciones/${id_usuario}`)
+    .pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        throw error; // Re-lanza el error para que sea manejado por el código de llamada.
+      })
+    );
+  }
+
   //-----------------------------Metodo para actualizar la direccion de un anuncios del usuario logeado-----------------------------------------.
   updateAnuncioDireccion(actualizar_anuncio: DireccionAnuncio_put) { 
     console.log('Actualizando anuncio con los siguientes datos:', actualizar_anuncio);

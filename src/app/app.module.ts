@@ -15,7 +15,7 @@ import{AnunciosService} from './servicios/anuncios/anuncios.service';
 import { LoginService } from 'src/app/servicios/login/login.service';
 import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { HomeComponent } from './componentes/home/home.component';
-import { AnunciosComponent } from './componentes/anuncios/anuncios.component';
+import { AnunciosComponent } from './componentes/anfitrion/anuncios/anuncios.component';
 import { environment } from 'src/environment/environment';
 import { PublicarAnuncioComponent } from './componentes/publicar-anuncio-p1/publicar-anuncio.component';
 import { PublicarAnuncioP2Component } from './componentes/publicar-anuncio-p2/publicar-anuncio-p2.component';
