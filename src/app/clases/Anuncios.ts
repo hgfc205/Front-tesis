@@ -98,6 +98,18 @@ export class AnuncioInfo_get{
     }
 }
 
+export class DetalleAnuncio_get{
+    constructor(
+        public titulo: string = '', 
+        public num_habitaciones: number, 
+        public precio: string = '', 
+        public direccion: string = '',
+        ){
+    
+        }
+}
+
+
 //Clase para recibir Json con los urls de las imagenes en determinado anuncio.
 export class AnuncioImagenes_get{
     constructor(

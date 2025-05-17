@@ -5,7 +5,7 @@ import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 //Importación de la pantalla principal
 import{ PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { HomeComponent} from './componentes/home/home.component';
-import { AnunciosComponent } from './componentes/anuncios/anuncios.component';
+import { AnunciosComponent } from './componentes/anfitrion/anuncios/anuncios.component';
 import { PublicarAnuncioComponent } from './componentes/publicar-anuncio-p1/publicar-anuncio.component';
 import { PublicarAnuncioP2Component } from './componentes/publicar-anuncio-p2/publicar-anuncio-p2.component';
 import { PublicarAnuncioP3Component } from './componentes/publicar-anuncio-p3/publicar-anuncio-p3.component';
@@ -17,7 +17,11 @@ import { PublicarAnuncioP7Component } from './componentes/publicar-anuncio-p7/pu
 
 import { PublicarAnuncioP8Component } from './componentes/publicar-anuncio-p8/publicar-anuncio-p8.component';
 
-import { PerfilUsuarioComponent} from './componentes/perfil-usuario/perfil-usuario.component';
+
+//import { PerfilUsuarioComponent} from './componentes/perfil-usuario/perfil-usuario.component';
+
+import { PerfilUsuarioComponent} from './componentes/huesped/perfil-usuario/perfil-usuario.component';
+//>>>>>>> 5793db5af3be6fb94b87898697512f9c951a0f04
 import { PerfilAnuncioComponent} from './componentes/perfil-anuncio/perfil-anuncio.component';
 
 
