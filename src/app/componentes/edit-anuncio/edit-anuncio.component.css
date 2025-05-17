@@ -1,43 +1,105 @@
 h2 {
-    text-align: center;
-  }
-  
-  .upload-container {
-    width: 250px;
-    height: 180px;
-    border: 2px dashed #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin: 10px auto;
-    text-align: center;
-    font-size: 16px;
-    color: #666;
-    position: relative;
-  }
-  
-  .upload-placeholder {
-    color: #666;
-  }
-  
-  .upload-container:hover {
-    border-color: #007bff;
-  }
-  
-  .preview-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  .preview {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    margin: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
+  text-align: center;
+}
+
+.upload-container {
+  width: 250px;
+  height: 180px;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  position: relative;
+}
+
+.upload-placeholder {
+  color: #666;
+}
+
+.upload-container:hover {
+  border-color: #007bff;
+}
+
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+
+  min-height: 100px; /* Ajusta la altura mínima según sea necesario */
+  align-items: center; /* Centra cualquier contenido dentro */
+}
+
+.preview {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+/* Estilos para la sección de imágenes guardadas */
+
+h3 {
+  text-align: center;
+  margin-bottom: 15px; /* Espacio debajo del título */
+}
+
+
+.no-images {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.saved-images-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+/* Estilos para la sección del boton subir imagenes */
+
+.upload-button-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.upload-button-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-button-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Eliminar foto boton */
+.preview-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.delete-button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

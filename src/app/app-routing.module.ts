@@ -76,8 +76,9 @@ const routes: Routes = [
   { path: 'perfil', component: PerfilUsuarioComponent,
   ...canActivate(() => redirectUnauthorizedTo(['']))},
 
-  { path: 'perfil/anuncio/:id', component: PerfilAnuncioComponent,
-  ...canActivate(() => redirectUnauthorizedTo(['']))},
+  { path: 'perfil/anuncio/:id', component: PerfilAnuncioComponent },
+
+  { path: 'editanuncio/:id', component: EditAnuncioComponent }, // RUTA CORRECTA
 
   
   //{ path:`perfil/anuncio/${id}`, component: AnunciosComponent}, 

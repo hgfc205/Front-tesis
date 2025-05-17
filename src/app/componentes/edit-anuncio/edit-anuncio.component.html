@@ -1,5 +1,8 @@
-<h2>Subir Imágenes</h2>
 
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<!-- Sección para subir imágenes desde el explorador de archivos -->
+
+<h2>Subir Imágenes</h2>
 <div class="upload-container" (click)="abrirExplorador()">
   <input 
     type="file" 
@@ -15,6 +18,35 @@
 </div>
 
 <!-- Mostrar vista previa de imágenes seleccionadas -->
-<div class="preview-container">
+<div class="preview-container" [class.empty] = "imagenesSeleccionadas.length === 0">
   <img *ngFor="let imagen of imagenesSeleccionadas" [src]="imagen" class="preview" />
+</div>
+
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<!-- Sección para el botón de subir imágenes, solo si hay imágenes seleccionadas -->
+<div *ngIf="imagenesSeleccionadas.length > 0" class="upload-button-container">
+  <button (click)="subirImagenes()">Subir</button>
+</div>
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<!-- Sección para mostrar imágenes ya guardadas en el backend -->
+
+<!-- Sección para mostrar imágenes ya guardadas en el backend -->
+<div class="saved-images-container">
+  <h3>Imágenes Guardadas</h3>
+  <div class="preview-container">
+    <!-- Si hay imágenes en el arreglo "imagenesGuardadas", las mostramos -->
+    <ng-container *ngIf="imagenesGuardadas.length > 0; else noImages">
+      <div *ngFor="let imagen of imagenesGuardadas" class="preview-wrapper">
+        <img [src]="imagen" class="preview" />
+        <button class="delete-button" (click)="eliminarImagen(imagen)">🗑</button>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Si no hay imágenes, mostramos este mensaje -->
+  <ng-template #noImages>
+    <p class="no-images">No hay imágenes guardadas.</p>
+  </ng-template>
 </div>
