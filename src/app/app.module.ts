@@ -27,6 +27,9 @@ import { PublicarAnuncioP7Component } from './componentes/publicar-anuncio-p7/pu
 import { PublicarAnuncioP8Component } from './componentes/publicar-anuncio-p8/publicar-anuncio-p8.component';
 import { PerfilAnuncioComponent } from './componentes/perfil-anuncio/perfil-anuncio.component';
 
+
+
+
 //import { Anuncios_get,Anuncios_add } from './clases/Anuncios';
 
 @NgModule({
@@ -42,6 +45,7 @@ import { PerfilAnuncioComponent } from './componentes/perfil-anuncio/perfil-anun
     PublicarAnuncioP3Component,
     PublicarAnuncioP4Component,
     PublicarAnuncioP5Component,
+
   ],
   imports: [
     NgbModule,
@@ -61,6 +65,6 @@ import { PerfilAnuncioComponent } from './componentes/perfil-anuncio/perfil-anun
     PantallaPrincipalComponent,
   ],
   providers: [AnunciosService,LoginService],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent,],
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 @Component({
@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FormsModule,CommonModule],
   templateUrl: './perfil-usuario.component.html',
-  styleUrl: './perfil-usuario.component.css'
+  styleUrl: './perfil-usuario.component.css',
+  encapsulation: ViewEncapsulation.None, // Desactiva el encapsulamiento
 })
 
 export class PerfilUsuarioComponent {
@@ -17,6 +18,9 @@ export class PerfilUsuarioComponent {
   apellidoPaterno: string = "";
   apellidoMaterno: string = "";
   nacionalidad: string = "";
+  email: string = "";
+  celular : string = "";
+  
   guardarPerfil() {
     // Lógica para guardar el perfil
 

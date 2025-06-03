@@ -13,9 +13,29 @@ import { PublicarAnuncioP4Component } from './componentes/publicar-anuncio-p4-/p
 import { PublicarAnuncioP5Component } from './componentes/publicar-anuncio-p5/publicar-anuncio-p5.component';
 import { PublicarAnuncioP6Component } from './componentes/publicar-anuncio-p6/publicar-anuncio-p6.component';
 import { PublicarAnuncioP7Component } from './componentes/publicar-anuncio-p7/publicar-anuncio-p7.component';
+
+
 import { PublicarAnuncioP8Component } from './componentes/publicar-anuncio-p8/publicar-anuncio-p8.component';
+
+
+//import { PerfilUsuarioComponent} from './componentes/perfil-usuario/perfil-usuario.component';
+
 import { PerfilUsuarioComponent} from './componentes/huesped/perfil-usuario/perfil-usuario.component';
+//>>>>>>> 5793db5af3be6fb94b87898697512f9c951a0f04
 import { PerfilAnuncioComponent} from './componentes/perfil-anuncio/perfil-anuncio.component';
+
+
+
+
+
+import { EditAnuncioComponent } from './componentes/edit-anuncio/edit-anuncio.component';
+
+
+
+
+
+
+
 let id: number | null = null;
 //Rutas qu se manejaran en la paginaweb.
 const routes: Routes = [
@@ -56,18 +76,27 @@ const routes: Routes = [
   { path: 'perfil', component: PerfilUsuarioComponent,
   ...canActivate(() => redirectUnauthorizedTo(['']))},
 
-  { path: 'perfil/anuncio/:id', component: PerfilAnuncioComponent,
-  ...canActivate(() => redirectUnauthorizedTo(['']))},
+  { path: 'perfil/anuncio/:id', component: PerfilAnuncioComponent },
+
+  { path: 'editanuncio/:id', component: EditAnuncioComponent }, // RUTA CORRECTA
 
   
   //{ path:`perfil/anuncio/${id}`, component: AnunciosComponent}, 
   //{ path:`perfil/usuario/${id}`, component: AnunciosComponent}, 
   // Otras rutas que puedas tener
- 
+
+
+  { path: 'editanuncio', component: EditAnuncioComponent, ...canActivate(() => redirectUnauthorizedTo(['']))},
+
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+
+  
+}

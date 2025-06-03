@@ -25,11 +25,29 @@
   </nav>
 </header>
     
+
+
 <body>
   <div class="row row-cols-1 row-cols-md-4 g-4">
-    <div class="col" *ngFor="let anuncio of anuncios" (click)="verAnuncio(anuncio.id_anuncio)">
-      <div class="card h-100">
-        <img [src]="anuncio?.direccion_imagen" class="card-img-top" alt="">
+    <div class="col" *ngFor="let anuncio of anuncios">
+      <div class="card h-100 position-relative">
+        <!-- Botón de favoritos -->
+        <input
+          type="checkbox"
+          id="favorite-{{anuncio.id_anuncio}}"
+          name="favorite-{{anuncio.id_anuncio}}"
+          class="favorite-checkbox"
+          [checked]="esFavorito(anuncio.id_anuncio)"
+          (click)="toggleFavorite(anuncio.id_anuncio, $event); $event.stopPropagation()">
+        <label
+          for="favorite-{{anuncio.id_anuncio}}"
+          class="favorite-label position-absolute top-0 end-0 m-2"
+          (click)="$event.stopPropagation()">
+          ❤
+        </label>
+
+        <!-- Contenido de la tarjeta -->
+        <img [src]="anuncio?.direccion_imagen" class="card-img-top" alt="Imagen del anuncio">
         <div class="card-body">
           <h5 class="card-title">{{ anuncio?.titulo }}</h5>
           <p class="card-text">{{ anuncio?.descripcion }}</p>

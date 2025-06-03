@@ -102,3 +102,35 @@ body {
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+
+
+
+
+
+/* Ocultar el checkbox original */
+.favorite-checkbox {
+    display: none;
+  }
+  
+  /* Estilo del corazón (label) */
+  .favorite-label {
+    font-size: 24px; /* Tamaño del corazón */
+    color: #bbb; /* Color inicial del corazón */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    user-select: none; /* Evitar que se seleccione el texto */
+    transition: color 0.3s ease; /* Animación para el cambio de color */
+  }
+  
+  /* Estilo cuando el checkbox está marcado */
+  .favorite-checkbox:checked + .favorite-label {
+    color: #ff5555; /* Color del corazón activado */
+  }
+  
+  /* Posición del corazón en la tarjeta */
+  .favorite-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1; /* Asegurarse de que esté por encima del contenido */
+  }
+  

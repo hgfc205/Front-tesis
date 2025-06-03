@@ -70,7 +70,7 @@ export class AnunciosService {
       map(res => res)
     );
   }
- 
+  
   addAnuncio(nuevo_anuncio: Anuncios_add)
   { 
     return this.http.post(`${this.domain}/anuncios/publicar`,nuevo_anuncio)
@@ -152,24 +152,24 @@ export class AnunciosService {
   }
    //-----------------------------Metodo para actualiza descripcion -----------------------------------------.
 
-   updateDescripcion(actualizar_anuncio: Descripcion_put, id: number | null = null)
-   { 
-     const data = {};
-     return this.http.put(`${this.domain}/anuncios/descripcion/${id}`,actualizar_anuncio)
-     .pipe(
-       catchError(error => {
-         console.error('Error en la solicitud HTTP:', error);
+    updateDescripcion(actualizar_anuncio: Descripcion_put, id: number | null = null)
+    { 
+      const data = {};
+      return this.http.put(`${this.domain}/anuncios/descripcion/${id}`,actualizar_anuncio)
+      .pipe(
+        catchError(error => {
+          console.error('Error en la solicitud HTTP:', error);
          throw error; // Propaga el error
-       }),
-       tap((response: any) => {
-         if (response && response.status === 'success') {
-           console.log('Anuncio actualizado correctamente');
-         } else {
-           console.error('Error al actualizar el anuncio. Respuesta del servidor:', response);
-         }
-       })
-     );
-   }
+        }),
+        tap((response: any) => {
+          if (response && response.status === 'success') {
+            console.log('Anuncio actualizado correctamente');
+          } else {
+            console.error('Error al actualizar el anuncio. Respuesta del servidor:', response);
+          }
+        })
+      );
+    }
   //-----------------------------Metodo para actualiza fechas -----------------------------------------.
 
   updateFecha(actualizar_anuncio: Fecha_put, id: number | null = null)
@@ -251,9 +251,9 @@ export class AnunciosService {
   //-----------------------------Metodo para subir una imagen.-----------------------------------------.
   addImagen(nuevo_anuncio: File, id_anuncio: number | null = null) { 
      // Crear un objet o FormData
-     const formData = new FormData();
+      const formData = new FormData();
      // Agregar el archivo al objeto FormData
-     formData.append('imagen', nuevo_anuncio);
+      formData.append('imagen', nuevo_anuncio);
 
     return this.http.post(`${this.domain}/imagen/upload/${id_anuncio}/1`, formData)
       .pipe(
@@ -295,6 +295,16 @@ export class AnunciosService {
         })
       );
   }
-
+  //recargar de las imagenes guardadas
+  getImagenesPorAnuncio(id_anuncio: number) {
+    return this.http.get<any[]>(`${this.domain}/imagenes/${id_anuncio}`);
+  }
+  //borra una imagen desde el componente edit-anuncio.component
+  /*deleteImagen(url: string) {
+    return this.http.delete(`${this.domain}/imagen/url/`, { body: { url } });
+  }*/
+    deleteImagen(url: string) {
+      return this.http.delete(`${this.domain}/imagen/url?url=${encodeURIComponent(url)}`);
+    }
 
 }

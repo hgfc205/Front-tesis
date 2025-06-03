@@ -1,12 +1,13 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-// setup
+/* setup */
+
 @import './setup/variables';
 @import './setup/mixins';
 @import './setup/layout';
 @import './setup/function';
 
 
-// base
+/* base */
 @import './base/basics';
 @import './base/buttons';
 @import './base/helpers';
