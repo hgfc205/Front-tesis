@@ -233,7 +233,6 @@ export class EditAnuncioComponent implements AfterViewInit {
           console.log('No hay anuncios disponibles.')
         }
       });
-    
     } catch (error) {
       console.error('Error al obtener el id_usuario.', error);
     }
