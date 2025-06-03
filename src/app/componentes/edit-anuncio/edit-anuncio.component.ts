@@ -4,15 +4,22 @@ import { ActivatedRoute } from '@angular/router';
 import { AnunciosService } from 'src/app/servicios/anuncios/anuncios.service';
 //import { ChangeDetectorRef } from '@angular/core';
 
-import { HttpErrorResponse, HttpClient } from '@angular/common/http';
-
+import {  HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 
+
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { LoginService } from '../../servicios/login/login.service';
+import { DireccionAnuncio_put, AnuncioIncompletos_get } from '../../clases/Anuncios';
 
 @Component({
   selector: 'app-edit-anuncio',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './edit-anuncio.component.html',
   styleUrls: ['./edit-anuncio.component.css']
 })
@@ -21,7 +28,8 @@ export class EditAnuncioComponent implements AfterViewInit {
 
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
-  //ngAfterViewInit() {}
+  mapUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.google.com/maps/embed/v1/place?q=25.7608105,-108.9889709&zoom=3&key=AIzaSyAJKhEZG06SRCHgQQiuv1fncdI-FUsj_PE');
+
 
   abrirExplorador() {
     if (this.fileInput) {
@@ -60,6 +68,8 @@ export class EditAnuncioComponent implements AfterViewInit {
     private route: ActivatedRoute, 
     private anunciosService: AnunciosService,
     private http: HttpClient,
+    private sanitizer: DomSanitizer,
+    private loginService: LoginService,
     //private cdr: ChangeDetectorRef // <-- este es el que te faltaba
   ) {}
 
@@ -160,5 +170,72 @@ export class EditAnuncioComponent implements AfterViewInit {
         console.error('Error al eliminar la imagen', error);
       }
     });
+  }
+
+  // --------------------------------------------------------------------------------------------------------------------
+  /*                                        PARTE 2                                          */
+  // --------------------------------------------------------------------------------------------------------------------
+  limpiarDireccion(): void {
+    const direccionInput = document.getElementById('direccionInput') as HTMLInputElement;
+    if (direccionInput) {
+      direccionInput.value = '';
+      console.log('Dirección limpiada');
+    }
+  }
+
+  buscarDireccion(): void {
+    try {
+      const direccionInput = document.getElementById('direccionInput') as HTMLInputElement;
+      const direccion = direccionInput.value;
+
+      this.anunciosService.searchDireccion(direccion).subscribe(coordenadas =>
+      {
+        console.log('datos del servicio: ', coordenadas);
+        this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.google.com/maps/embed/v1/place?q=${coordenadas.latitud},${coordenadas.longitud}&key=AIzaSyAJKhEZG06SRCHgQQiuv1fncdI-FUsj_PE`);
+      });
+    } catch (error) { 
+      console.error('Error al obtener coordenadas.', error);
+    }
+  }
+
+  anuncio: AnuncioIncompletos_get[] = [];
+  // Funcion registrar direccion en anuncio
+  async registrarDireccion(): Promise<void> {
+    try 
+    {
+      const direccionInput = document.getElementById('direccionInput') as HTMLInputElement;
+      const direccion = direccionInput.value;
+  
+      //Llamado al metodo del servicio que devuelve el usuario logeado.
+      const id_usuario = await this.loginService.UidResponse() ?? '';
+
+      // Obtener anuncios incompletos llamando al metodo que devuelve los datos del anuncio incompleto para determinado usuario.
+      this.anunciosService.getAnunciosIncompletos(id_usuario).subscribe(anuncios => 
+      {
+        console.log('Datos del servicio:', anuncios);
+        // Validación para que el arreglo devuelto contenga datos.
+        if (anuncios.length > 0) {
+          this.anuncio = anuncios
+          const id_anuncio = this.anuncio[0].id_anuncio
+  
+          // Realizar operaciones con id_anuncio
+          //console.log(id_anuncio)
+  
+          // Asignación de valores a la constante que contiene los parámetros para actualizar datos en el servidor.
+          const anuncioParams = new DireccionAnuncio_put(id_anuncio, id_usuario, direccion)
+
+          // Manejador de errores para el llamado del servicio que actualiza un anuncio en la dirección.
+          this.anunciosService.updateAnuncioDireccion(anuncioParams).subscribe(() => {
+          
+          });
+  
+        } else {
+          console.log('No hay anuncios disponibles.')
+        }
+      });
+    
+    } catch (error) {
+      console.error('Error al obtener el id_usuario.', error);
+    }
   }
 }

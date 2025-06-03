@@ -1,4 +1,3 @@
-
 <!-- -------------------------------------------------------------------------------------------------------------------- -->
 <!-- Sección para subir imágenes desde el explorador de archivos -->
 
@@ -50,3 +49,30 @@
     <p class="no-images">No hay imágenes guardadas.</p>
   </ng-template>
 </div>
+
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<!--                            AQUÍ INICIA LA PARTE 2!                               -->
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<body>
+  <div class="container">
+    <h3>¿Dónde se encuentra tu alojamiento?</h3>
+    <p>Indica la direreccón de tu alojamiento.</p>
+
+    <div class="input-container">
+      <input type="text" id="direccionInput" placeholder=" Calle y Número, Colonia  CP:#####, Ciudad y estado">
+      <button id="limpiarBoton" (click)="limpiarDireccion()" tabindex="-1">&#10006;</button>
+    </div>
+    <button id="guardarBoton" (click)="registrarDireccion()">Guardar</button>
+    <button id="buscarBoton" (click)="buscarDireccion()">Búscar</button>
+  </div>
+
+  <div class="mapa">
+    <iframe
+    width="600"
+    height="335"
+    frameBorder="0"
+    style="border: 0"
+    [src]="mapUrl" allowfullscreen>
+  </iframe>
+  </div>
+</body>

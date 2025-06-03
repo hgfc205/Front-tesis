@@ -235,7 +235,8 @@ footer a:hover {
 /* ------------------------------------------- Fondo -------------------------------- */
 body {
   font-family: 'Inter', sans-serif;
-  background: url('../../../assets/Images/pexels-pixabay-531880.jpg') no-repeat center center fixed;
+  /*background: url('../../../assets/Images/pexels-pixabay-531880.jpg') no-repeat center center fixed;*/
+  background: url('../../../../assets/Images/pexels-pixabay-531880.jpg') no-repeat center center fixed;
   background-size: cover;
   margin: 0;
   padding: 0;
