@@ -93,6 +93,8 @@ export class AnuncioInfo_get{
     public direccion: string = '',
     public latitud: string = '',
     public longitud: string = '',
+    public servicios: number[] = [] // 👈🏽 ESTA LÍNEA AGREGA LA PROPIEDAD FALTANTE
+
     ){
 
     }
@@ -132,6 +134,7 @@ export class tipoAlojamiento_get{
 
 export class tipoServicio_get{
     constructor(
+        public id_servicio: number, //prueba
         public id_alojamiento: number , 
         public descripcion: string = '',
         public categoria: string = '',

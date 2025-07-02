@@ -76,3 +76,93 @@
   </iframe>
   </div>
 </body>
+
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<!--                            AQUÍ INICIA LA PARTE 3! Guardado en la base de datos                              -->
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<div class="crud">
+  <div class="titulazo">
+    <h3>Titulo del alojamiento: </h3>
+    <input type="text" placeholder="Ingresa el titulo aqui">
+  </div>
+
+  <div id="cajasTexto1" class="d-flex ">
+      <h1>Agrega algunos datos básicos de tu espacio</h1>
+      <label for="cajaTexto1">Número de Habitaciones</label>
+      <div>
+          <button class="btn btn-outline-primary btn-no-border" (click)="disminuirContenido(1)">-</button>
+          <input type="text" id="cajaTexto1" value="0" readonly>
+          <button class="btn btn-outline-primary btn-no-border" (click)="aumentarContenido(1)">+</button>
+      </div>
+      
+      <label for="cajaTexto2">Número de Camas</label>
+      <div>
+          <button class="btn btn-outline-primary btn-no-border" (click)="disminuirContenido(2)">-</button>
+          <input type="text" id="cajaTexto2" value="0" readonly>
+          <button class="btn btn-outline-primary btn-no-border" (click)="aumentarContenido(2)">+</button>
+      </div>
+      
+      <label for="cajaTexto3">Número de Baños</label>
+      <div>
+          <button class="btn btn-outline-primary btn-no-border" (click)="disminuirContenido(3)">-</button>
+          <input type="text" id="cajaTexto3" value="0" readonly>
+          <button class="btn btn-outline-primary btn-no-border" (click)="aumentarContenido(3)">+</button>
+      </div>
+    </div>  
+</div>
+
+<body>
+    <div id="container-parrafo" class="container mt-5">
+      <div class="text-center">
+        <p class="fs-3">Cuéntale a los huéspedes todo lo que tu espacio tiene para ofrecer.</p>
+        <p class="fs-0"> Selecciona todos los servicios que proporcionas.</p>
+      </div>
+      <div id="container-alojamientos" class="container mt-4">
+        <div class="row">
+          <div class="col" *ngFor="let categoria of ['Básico']">
+            <h2>Servicios {{ categoria }}s</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col" *ngFor="let servicio of serviciosPorCategoria[categoria]">
+                <div class="card custom-card" [class.selected]="tarjetasSeleccionadas.includes(servicio)"
+                  (click)="seleccionarTarjeta(servicio)">
+                  <div class="card-body">
+                    <p class="card-text">{{ servicio?.descripcion }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col" *ngFor="let categoria of ['Entretenimiento']">
+            <h2>{{ categoria }}</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col" *ngFor="let servicio of serviciosPorCategoria[categoria]">
+                <div class="card custom-card" [class.selected]="tarjetasSeleccionadas.includes(servicio)"
+                  (click)="seleccionarTarjeta(servicio)">
+                  <div class="card-body">
+                    <p class="card-text">{{ servicio?.descripcion }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- She says "babe, you look so cool..." -->
+        <div class="row">
+          <div class="col" *ngFor="let categoria of ['Seguridad']">
+            <h2>{{ categoria }}</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col" *ngFor="let servicio of serviciosPorCategoria[categoria]">
+                <div class="card custom-card" [class.selected]="tarjetasSeleccionadas.includes(servicio)"
+                  (click)="seleccionarTarjeta(servicio)">
+                  <div class="card-body">
+                    <p class="card-text">{{ servicio?.descripcion }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

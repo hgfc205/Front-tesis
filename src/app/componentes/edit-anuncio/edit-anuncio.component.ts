@@ -13,6 +13,9 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { LoginService } from '../../servicios/login/login.service';
 import { DireccionAnuncio_put, AnuncioIncompletos_get } from '../../clases/Anuncios';
 
+
+import { tipoServicio_get } from '../../clases/Anuncios';
+
 @Component({
   selector: 'app-edit-anuncio',
   standalone: true,
@@ -79,6 +82,7 @@ export class EditAnuncioComponent implements AfterViewInit {
       this.idAnuncio = params.get('id') || '';
       if (this.idAnuncio) {
         this.cargarImagenes();
+        this.cargarDatosDelAnuncio(); // <-- aquí
       }
     });
   }
@@ -173,7 +177,7 @@ export class EditAnuncioComponent implements AfterViewInit {
   }
 
   // --------------------------------------------------------------------------------------------------------------------
-  /*                                        PARTE 2                                          */
+  /*                                        PARTE 2     mapa                                     */
   // --------------------------------------------------------------------------------------------------------------------
   limpiarDireccion(): void {
     const direccionInput = document.getElementById('direccionInput') as HTMLInputElement;
@@ -237,4 +241,96 @@ export class EditAnuncioComponent implements AfterViewInit {
       console.error('Error al obtener el id_usuario.', error);
     }
   }
+  // --------------------------------------------------------------------------------------------------------------------
+  /*                                        PARTE 3     crud                                     */
+  // --------------------------------------------------------------------------------------------------------------------
+
+  // Función para aumentar el contenido de la caja de texto.
+  aumentarContenido(caja: number) {
+    const cajaTexto = document.getElementById(`cajaTexto${caja}`) as HTMLInputElement;
+    cajaTexto.value = (parseInt(cajaTexto.value) + 1).toString();
+  }
+
+  // Función para dsminuir el contenido de la caja de texto.
+  disminuirContenido(caja: number) {
+    const cajaTexto = document.getElementById(`cajaTexto${caja}`) as HTMLInputElement;
+    if (parseInt(cajaTexto.value) > 0) {
+      cajaTexto.value = (parseInt(cajaTexto.value) - 1).toString();
+    }
+  }
+
+
+  tipos_servicio: tipoServicio_get[] = [];
+  tarjetasSeleccionadas: tipoServicio_get[] = [];
+  serviciosPorCategoria: {[key: string]: tipoServicio_get[]} = {};
+  tarjetaSeleccionada: any = null;
+
+
+  seleccionarTarjeta(tarjeta: tipoServicio_get): void {
+    const index = this.tarjetasSeleccionadas.indexOf(tarjeta);
+  
+    if (index === -1) {
+      // Si la tarjeta no está seleccionada, agrégala a la lista
+      this.tarjetasSeleccionadas.push(tarjeta);
+    } else {
+      // Si la tarjeta ya está seleccionada, quítala de la lista
+      this.tarjetasSeleccionadas.splice(index, 1);
+    }
+  }
+
+
+  cargarDatosDelAnuncio() {
+  const id = Number(this.idAnuncio);
+
+  this.anunciosService.getAnunciosInfo(id).subscribe((anuncios) => {
+    console.log("Respuesta del backend:", anuncios); // <-- Aquí
+    if (!anuncios || anuncios.length === 0) return;
+
+    const anuncio = anuncios[0];
+
+    // Rellenar campos de texto
+    (document.getElementById("cajaTexto1") as HTMLInputElement).value = anuncio.num_habitaciones.toString();
+    (document.getElementById("cajaTexto2") as HTMLInputElement).value = anuncio.num_camas.toString();
+    (document.getElementById("cajaTexto3") as HTMLInputElement).value = anuncio.num_banos.toString();
+
+    const tituloInput = document.querySelector('.titulazo input') as HTMLInputElement;
+    if (tituloInput) {
+      tituloInput.value = anuncio.titulo;
+    }
+
+    const direccionInput = document.getElementById('direccionInput') as HTMLInputElement;
+    if (direccionInput) {
+      direccionInput.value = anuncio.direccion;
+    }
+
+    // Rellenar servicios seleccionados
+    this.anunciosService.getTiposServicios().subscribe((servicios) => {
+      this.tipos_servicio = servicios;
+
+      // Agrupar por categoría
+      this.serviciosPorCategoria = {};
+      for (const servicio of servicios) {
+        const categoria = servicio.categoria;
+        if (!this.serviciosPorCategoria[categoria]) {
+          this.serviciosPorCategoria[categoria] = [];
+        }
+        this.serviciosPorCategoria[categoria].push(servicio);
+      }
+
+      // Seleccionar los servicios que estén en el anuncio
+      this.tarjetasSeleccionadas = servicios.filter(s => anuncio.servicios.includes(s.id_servicio));
+    });
+
+    // Mapa
+    if (anuncio.latitud && anuncio.longitud) {
+      this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+        `https://www.google.com/maps/embed/v1/place?q=${anuncio.latitud},${anuncio.longitud}&key=AIzaSyAJKhEZG06SRCHgQQiuv1fncdI-FUsj_PE`
+      );
+    }
+
+  }, (error) => {
+    console.error('Error al cargar datos del anuncio:', error);
+  });
+}
+
 }
